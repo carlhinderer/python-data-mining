@@ -1,10 +1,28 @@
+-------------------------------------
+CLASSIFICATION
+-------------------------------------
 
-- Affinity Analysis = look at which 2 products are often bought together
-                        to suggest additional products to customers
+- Affinity Analysis 
 
-  "If a person buys product X, then they are likely to purchase product Y."
+    Look at which 2 products are often bought together to suggest additional 
+      products to customers
+
+    "If a person buys product X, then they are likely to purchase product Y."
+
+    Affinity analysis can prove correlation, but not causation.
 
 
-- Simple rule ranking
 
-    
+- Support and Confidence
+
+    Support    = number of times a rule occurs in a dataset
+
+    Premise    = the requirements for a rule to be considered active
+    Conclusion = the output of the rule
+
+    Confidence = how accurate rules are when they are used
+
+    (Example)
+    Rule       = 
+    Premise    = "If a person buys an apple, they also buy a banana."
+    Conclusion = "The person will buy a banana."
