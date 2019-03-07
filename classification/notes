@@ -23,6 +23,38 @@ CLASSIFICATION
     Confidence = how accurate rules are when they are used
 
     (Example)
-    Rule       = 
-    Premise    = "If a person buys an apple, they also buy a banana."
+    Rule       = "If a person buys an apple, they also buy a banana."
+    Premise    = "If a person buys an apple"
     Conclusion = "The person will buy a banana."
+
+
+
+- Computing Statistics for Rules
+
+    1. Create dictionaries to store results
+
+    # The 'defaultdict' type sets a default value if a key is accessed
+    #   that doesn't already exist.
+
+    from collections import defaultdict
+    valid_rules = defaultdict(int)
+    invalid_rules = defaultdict(int)
+    num_occurences = defaultdict(int)
+
+
+    2. Compute the rule statistices in a large loop.
+
+    for sample in X:
+        for premise in range(n_features):
+            if sample[premise] == 0: continue
+
+            # Record that the premise was bought in another transaction
+            num_occurences[premise] += 1
+
+            for conclusion in range(n_features):
+                # Skip if X -> X
+                if premise == conclusion: continue
+
+                # Record if the conclusion item was bought also
+                if sample[conclusion] == 1:
+                    valid_rules[(premise, conclusion)] += 1
