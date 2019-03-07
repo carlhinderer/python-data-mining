@@ -62,4 +62,21 @@ CLASSIFICATION
     support = valid_rules
 
 
-    3. 
+    3. Compute confidence
+
+    confidence = defaultdict(float)
+
+    for premise, conclusion in valid_rules.keys():
+        rule = (premise, conclusion)
+        confidence[rule] = valid_rules[rule] / num_occurences[premise]
+
+
+    4. Print support and confidence of each rule
+
+    for premise, conclusion in confidence:
+        premise_name = features[premise]
+        conclusion_name = features[conclusion]
+        print("Rule: If a person buys {0} they will also buy {1}".format(premise_name, conclusion_name))
+        print(" - Confidence: {0:.3f}".format(confidence[(premise, conclusion)]))
+        print(" - Support: {0}".format(support[premise, conclusion]))
+        print("")
