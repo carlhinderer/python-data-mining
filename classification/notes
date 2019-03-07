@@ -58,3 +58,8 @@ CLASSIFICATION
                 # Record if the conclusion item was bought also
                 if sample[conclusion] == 1:
                     valid_rules[(premise, conclusion)] += 1
+
+    support = valid_rules
+
+
+    3. 
